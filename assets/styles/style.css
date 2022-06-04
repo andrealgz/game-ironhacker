@@ -1,48 +1,48 @@
 
 body{
-    background-color: black;
+    background-image: url(../image/fondo9.jpeg);
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-color: black;
+   
 }
 
-.icons-commodin{
+.icons-comodin{
     display: flex;
-    flex-direction: column;
-    width: 100px;
-    margin-top: 12%;
-    margin-bottom: 6%;
+    color: #e1a02e;
+    width: 570px;
+    height: 150px;
+    background: url(../image/comodines.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: flex-end;
-}
-.img-comodin{
-    height: 50px;
-    width: 200px;
-    margin-right: 30px; 
-}
-.btn-comodin{
-    display:flex;
-    color:#e1a02e;
-    justify-content: space-evenly;
-    width: 230px;
+    justify-content: space-around;
+    background-size: cover;
+    margin-top: 15%;
 }
 
 
 .panel{
-    padding: 1%;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin:1% auto;
-
+    margin:0% auto;
+}
+.logo{
+    width: 450px;
+    margin-top: 8%;
 }
 
 .nav{
-      display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .nav .ul{
@@ -71,46 +71,69 @@ body{
     justify-content: center;
     flex-direction:column;
     align-items: center;
-}
-
-.button-a::before {
-    content: 'A: '
-}
-
-.button-b::before {
-    content: 'B: '
-}
-
-.button-c::before {
-    content: 'C: '
-}
-
-.button-d::before {
-    content: 'D: '
+    width: 100%;
 }
 
 .question{
-    background-image: url(../Imagenes/quest.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    font-size: 10px;
-    font-family: Arial,Verdana,"Helvetica CY",sans-serif;
-    margin-bottom: 60px;
-    margin-top: 8%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+background:url(../image/quest.png);
+background-size: cover;
+background-repeat: no-repeat;
+width: 100%;
+margin-top: 10%;
+font-size: 60%;
+display: flex;
+justify-content: center;
+height: 53px;
+}
+
+.question h2{
+display: flex;
+width: 70%;
+align-items: center;
+justify-content: center;
 }
 
 
-.question > h2{
-    margin:0 50%;
+
+.button-a::before {
+    content: 'A: ';
+    color:#e1a02e;
+}
+
+.button-b::before {
+    content: 'B: ';
+    color:#e1a02e;
+}
+
+.button-c::before {
+    content: 'C: ';
+    color:#e1a02e;
+}
+
+.button-d::before {
+    content: 'D: ';
+    color:#e1a02e;
 }
 
 .answers{
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.button{
+    display: flex;
+    width: 50%;
+    background-image: url(../image/box.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 30px;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
 }
 
 .line1{
@@ -119,98 +142,12 @@ body{
     margin-bottom: 20px;
 }
 
-.line2{
-    display: flex;
-    flex-direction: row;
-}
-.buttonA{
-    display:flex;
-    background-image: url(../Imagenes/sprite_ans.webp);
-    padding: 0 5%;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: 100% 280px;
-    width: 340px;
-    font-size: 18px;
-    line-height: 22px;
-    height: 40px;
-    font-family: Arial,Verdana,"Helvetica CY",sans-serif;
-    margin: 0 auto;
-    flex-direction: row;
-    color:white;
-}
 
-.buttonB{
-    display:flex;
-    background-image: url(../Imagenes/sprite_ans.webp);
-    padding: 0 5%;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: 100% 280px;
-    width: 340px;
-    font-size: 18px;
-    line-height: 22px;
-    height: 40px;
-    font-family: Arial,Verdana,"Helvetica CY",sans-serif;
-    margin: 0 auto;
-    color:white;
-    flex-direction: row;
-}
-
-.buttonC{
-    display:flex;
-    background-image: url(../Imagenes/sprite_ans.webp);
-    padding: 0 5%;
-    background-size: 100% 280px;
-    width: 340px;
-    font-size: 18px;
-    line-height: 22px;
-    height: 40px;
-    font-family: Arial,Verdana,"Helvetica CY",sans-serif;
-    margin: 0 auto;
-    color:white;
-    flex-direction: row;
-    margin-top: 30px;
-}
-
-.buttonD{
-    display:flex;
-    background-image: url(../Imagenes/sprite_ans.webp);
-    padding: 0 5%;
-    background-size: 100% 280px;
-    width: 340px;
-    font-size: 18px;
-    line-height: 22px;
-    height: 40px;
-    font-family: Arial,Verdana,"Helvetica CY",sans-serif;
-    margin: 0 auto;
-    color:white;
-    flex-direction: row;
-    margin-top: 30px;
-}
-
-
-.button :hover{
+.button:hover{
     color: orange;
     cursor: pointer;
 }
 
-.A{
-    color:#e1a02e;
-    margin-right: 15px;
-}
-
-.B{
-    color:#e1a02e;
-    margin-right: 15px;
-}
-
-.C{
-    color:#e1a02e;
-    margin-right: 15px;
-}
-
-.D{
-    color:#e1a02e;
-    margin-right: 15px;
+.progress{
+    color:white;
 }

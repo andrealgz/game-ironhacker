@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     game.start()
     
     const randomNumber = Math.floor(Math.random() * questions.easy.length);
+    
     document.querySelector('.question > h2').innerText = questions.easy[randomNumber].question
     const answer = document.querySelectorAll('.answers .button');
     for (let i = 0; i < Array.from(answer).length; i++) {
