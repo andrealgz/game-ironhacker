@@ -1,99 +1,94 @@
-/* class Game {
-
-    
-    start(){
-    questionCounter = 0;
-    score = 0;
-    availableQuestions = [...questions];
-    //console.log(availableQuesions);
-
-
-    getNewQuestion();
-    game.classList.remove("hidden");
-    loader.classList.add("hidden");
-    };
-
-    // Seleccionar siguiente pregunta //
-    getNewQuestion = () => {
-    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-      localStorage.setItem("mostRecentScore", score);
-
-      //go to the end page
-      return window.location.assign("end.html");
-    }
-    questionCounter++;
-    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
-}
-
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 10;
-
-// Start the game function //
-startGame = () => {
-  questionCounter = 0;
-  score = 0;
-  availableQuesions = [...questions];
-  //console.log(availableQuesions);
-  getNewQuestion();
-  game.classList.remove("hidden");
-  loader.classList.add("hidden");
-};
-
-//Seleccionar siguiente pregunta //
-getNewQuestion = () => {
-  if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-	localStorage.setItem("mostRecentScore", score);
-    //go to the end page
-    return window.location.assign("end.html");
+class Game {
+  constructor(
+    questionBoxes,
+    audienceBtn,
+    tlfBtn,
+    divideBtn,
+    questionElement,
+    answerBoxes
+  ) {
+    this.questionBoxes = questionBoxes;
+    this.audienceBtn = audienceBtn;
+    this.tlfBtn = tlfBtn;
+    this.divideBtn = divideBtn;
+    this.questionElement = questionElement;
+    this.answerBoxes = answerBoxes;
+    this.currentQuestionIndex = null;
+    this.questions = [];
   }
-  questionCounter++;
-  progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
 
-// Actualizar barra //
-  progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
+  start() {
+    this.setListeners();
+    this.setRandomQuestions();
+    this.drawQuestion();
+    // TODO: set random questions
+    // TODO: set listeners
+    // TODO: init current cuestion, currentQuestionIndex = 0
+  }
 
-  const questionIndex = Math.floor(Math.random() * availableQuesions.length);
-  currentQuestion = availableQuesions[questionIndex];
-  question.innerText = currentQuestion.question;
+  setRandomQuestions() {
+    this.questions = questions;
+    this.currentQuestionIndex = 0;
+    // TODO: select random questions from "questions" object
+    // and set them on questionBoxes
+  }
 
-  choices.forEach(choice => {
-    const number = choice.dataset["number"];
-    choice.innerText = currentQuestion["choice" + number];
-  });
+  setListeners() {
+    // TODO: audience btn click
+    // TODO: tlf btn click
+    // TODO: divide btn click
+    // TODO: answers btn click
+    this.answerBoxes.forEach((box) => {
+      box.addEventListener("click", (event) => {
+        console.log(event.target);
+        this.onAnswerClick(event.target.innerText);
+      });
+    });
+  }
 
-  availableQuesions.splice(questionIndex, 1);
-  // console.log(availableQuesions);
-  acceptingAnswers = true;
-};
+  onClickAudience() {
+    // TODO: pensarlo...
+    // TODO: remove listener => removeEventListener
+    // TODO: add css class to disable button
+  }
 
-// Verificar result //
-choices.forEach(choice => {
-  choice.addEventListener("click", e => {
-    if (!acceptingAnswers) return;
+  onClickTlf() {
+    // TODO: Carlos y Juli
+    // TODO: remove listener => removeEventListener
+    // TODO: add css class to disable button
+  }
 
-    acceptingAnswers = false;
-    const selectedChoice = e.target;
-    const selectedAnswer = selectedChoice.dataset["number"];
-	
-	const classToApply=
-		selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-	
-	// Incrementar score //
-	if (classToApply === "correct"){
-		incrementScore(CORRECT_BONUS);
-	}
-	
-	selectedChoice.parentElement.classList.add(classToApply);
-		
-	setTimeout(() => {
-		selectedChoice.parentElement.classList.remove(classToApply);
-		getNewQuestion();
-	}, 1000);
-	});
-});
+  onClickDivide() {
+    // TODO: disable 2 wrong answers
+    // TODO: remove listener => removeEventListener
+    // TODO: add css class to disable button
+  }
 
-/* Update the score //
-incrementScore = num => {
-	score += num;
-	scoreText.innerText = score;
-};
+  onAnswerClick(answer) {
+    if (this.questions[this.currentQuestionIndex].trueAnswer === answer) {
+      this.questionBoxes[14 - this.currentQuestionIndex].innerText = "OK";
+      this.currentQuestionIndex++;
+      this.drawQuestion();
+    } else {
+      console.log("errorrrrr");
+    }
+    // TODO: add css class to apply orange color
+    // setTimeout:
+    // TODO: check if answer is valid, check questions[currentQuestionIndex]
+    // if valid: inc currentQuestion. this.drawQuestion()
+    // else: game over
+  }
+
+  drawQuestion() {
+    const questionObj = this.questions[this.currentQuestionIndex];
+
+    this.questionElement.innerText = questionObj.question;
+
+    this.answerBoxes.forEach((box, i) => {
+      box.innerText = questionObj.answer[i];
+    });
+    // TODO: set current question on question box. innerText = ...
+    // TODO: draw answers on answerBoxes
+    // TODO: add css class to questionbox
+  }
+}

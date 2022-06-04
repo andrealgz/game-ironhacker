@@ -1,16 +1,92 @@
-const questions = {
-    easy: [
-        {
-            question: "¿Que usarías para guardar el nombre de un usuario?",
-            answer: ["let", "const", "var", "name"],
-            trueAnswer: "const",
-            unSelectedQuestion: true
-        }
-        
-    ],
-    medium:[  ],
-    hard:[  ],
-    heavy:[  ]
-}
-
-questions.easy[0].question
+const questions = [
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 1?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 2?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 3?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 4?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 1?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 2?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 3?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 4?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 1?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 2?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 3?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 4?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 2?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 3?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+  {
+    question: "¿Que usarías para guardar el nombre de un usuario 4?",
+    answer: ["let", "const", "var", "name"],
+    trueAnswer: "const",
+    unSelectedQuestion: true,
+  },
+];
