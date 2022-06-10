@@ -5,6 +5,7 @@ const game = new Game(
   document.getElementById("divide-btn"),
   document.querySelector(".question"),
   document.querySelectorAll(".answers a")
+  
 );
 
 game.start();

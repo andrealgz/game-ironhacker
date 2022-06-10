@@ -5,26 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quién quiere ser IronHacker?</title>
+    <link rel="icon" href="./assets/image/logo.png">
     <link rel='stylesheet' href="./assets/styles/style.css">
 </head>
     <meta charset="utf-8" />
 
 <body>
     
-    <div class="panel">
-        <button class="icons-comodin">
-            <a id="comodin1" class="btn-comodin1"> Publico </a>
-            <a id="comodin2" class="btn-comodin2"> Teléfono </a>
-            <a id="comodin3" class="btn-comodin3"> 50/50 </a>
-    </button>
+    <div class="container">
+
+        <div class="icons-comodin">
+           <button class="btn-comodin1" id="audience-btn"><a> Publico </a></button> 
+           <button class="btn-comodin2" id="tlf-btn"><a> Teléfono </a></button>
+           <button class="btn-comodin3" id="divide-btn"><a> 50/50 </a></button>
+        </div>
+
         <div class="nav">
           
             <img class="logo" src="./assets/image/logo.png">
-
+            
             <ul>
                 <li class= "white">
                     <span class="number">15 </span>
-                    <span class="text">&nbspExcellent!</span>
+                    <span class="text">&nbsp  Excellent!</span>
                 </li>
                 <li class="orange">14</li>
                 <li class="orange">13</li>
@@ -32,7 +35,7 @@
                 <li class="orange">11</li>
                 <li class= "white">
                     <span class="number">10</span>
-                    <span class="text">&nbspGood job!</span>
+                    <span class="text">&nbsp  Good job!</span>
                 </li>
                 <li class="orange">9</li>
                 <li class="orange">8</li>
@@ -40,31 +43,29 @@
                 <li class="orange">6</li>
                 <li class= "white">
                     <span class="number">5 </span>
-                    <span class="text">&nbspWell done!</span>
+                    <span class="text">&nbsp  Well done!</span>
                 </li>
                 <li class="orange">4</li>
                 <li class="orange">3</li>
                 <li class="orange">2</li>
                 <li class="orange">1</li>
             </ul>
+        
         </div>
         
         <div class="game"> 
 
-            <div class="question"> 
-                <h2></h2>
+            <div class="question" >
             </div>
-        
+            <br>
             <div class="answers">
-                <a class="button button-a"></a>
-                <a class="button button-b"></a>
-                <a class="button button-c"></a>
-                <a class="button button-d"></a>
+                <div class="container-button"><a class="button button-a"></a></div>
+                <div class="container-button"><a class="button button-b"></a></div>
+                <div class="container-button"><a class="button button-c"></a></div>
+                <div class="container-button"><a class="button button-d"></a></div>
             </div>
+            <p id="timeOut"></p>
         </div>
-        <footer>
-            <p class="progress"> Question x of y </p>
-        </footer>
     </div>
     <script type="text/javascript" src="./assets/js/constants.js"></script>
     <script type="text/javascript" src="./assets/js/models/game.js"></script>

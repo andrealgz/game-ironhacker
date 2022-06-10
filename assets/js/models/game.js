@@ -1,49 +1,72 @@
 class Game {
-  constructor(
-    questionBoxes,
-    audienceBtn,
-    tlfBtn,
-    divideBtn,
-    questionElement,
-    answerBoxes
-  ) {
+  constructor(questionBoxes, audienceBtn, tlfBtn, divideBtn, questionElement, answerBoxes) {
     this.questionBoxes = questionBoxes;
     this.audienceBtn = audienceBtn;
     this.tlfBtn = tlfBtn;
     this.divideBtn = divideBtn;
     this.questionElement = questionElement;
     this.answerBoxes = answerBoxes;
-    this.currentQuestionIndex = null;
+    this.currentQuestionIndex = 0;
     this.questions = [];
+    this.intervalId = null;
+    this.newAudioCountDown = new Audio("./assets/sounds/Respuestas.mp3");
+    this.newAudioCountDown.volume = 0.5;
+    this.helps = {
+      public: true,
+      telephone: true,
+      fifty: true,
+    }
   }
 
   start() {
     this.setListeners();
     this.setRandomQuestions();
     this.drawQuestion();
-    // TODO: set random questions
-    // TODO: set listeners
-    // TODO: init current cuestion, currentQuestionIndex = 0
+    this.countDown();
+  }
+  
+
+  prepareQuestion(){
+    function getRamdonRankedQuestion(rank){
+      const rankedQuestions = questionsDataBase.filter((question) => {
+       return question.rank === rank
+      })
+      return rankedQuestions[Math.floor(Math.random() * rankedQuestions.length)];
+    }
+    this.questions = []
+    for (let rank = 1; rank <= 15; rank++) {
+      const question = getRamdonRankedQuestion(rank)
+      this.questions.push(question)
+    }
   }
 
   setRandomQuestions() {
-    this.questions = questions;
-    this.currentQuestionIndex = 0;
-    // TODO: select random questions from "questions" object
-    // and set them on questionBoxes
+    this.prepareQuestion(); 
   }
 
   setListeners() {
-    // TODO: audience btn click
-    // TODO: tlf btn click
-    // TODO: divide btn click
-    // TODO: answers btn click
-    this.answerBoxes.forEach((box) => {
-      box.addEventListener("click", (event) => {
-        console.log(event.target);
-        this.onAnswerClick(event.target.innerText);
+    this.answerBoxes.forEach((answerbox) => {
+      answerbox.addEventListener("click", (event) => {
+        this.onAnswerClick(event.target);
       });
     });
+
+    this.audienceBtn.addEventListener("click",() => {
+      this.onClickAudience();
+    })
+
+    this.tlfBtn.addEventListener("click",() =>{
+      this.onClickTlf();
+    })
+
+    this.divideBtn.addEventListener("click",()=>{
+      if (this.helps.fifty) {
+        this.onClickDivide();
+        this.helps.fifty = false;
+        /*this.divideBtn.classList.add('')*/
+      }
+      
+    })
   }
 
   onClickAudience() {
@@ -58,26 +81,63 @@ class Game {
     // TODO: add css class to disable button
   }
 
+
   onClickDivide() {
-    // TODO: disable 2 wrong answers
-    // TODO: remove listener => removeEventListener
-    // TODO: add css class to disable button
+    const questionObj = this.questions[this.currentQuestionIndex];
+    const wrongAnswers = questionObj.answer
+      .filter(answer => answer !== questionObj.trueAnswer)
+      .sort( () => { return Math.random() - 0.5 })
+      .splice(1);
+    console.log(wrongAnswers);
+    this.answerBoxes.forEach((box) => {
+      if (wrongAnswers.includes(box.innerText)) {
+        box.classList.add('no-visible');
+      }
+    });
   }
 
-  onAnswerClick(answer) {
-    if (this.questions[this.currentQuestionIndex].trueAnswer === answer) {
-      this.questionBoxes[14 - this.currentQuestionIndex].innerText = "OK";
-      this.currentQuestionIndex++;
-      this.drawQuestion();
+  onAnswerClick(answerBox) {
+    clearInterval(this.intervalId);
+    this.intervalId = null;
+    this.newAudioCountDown.pause();
+    
+    if (this.questions[this.currentQuestionIndex].trueAnswer === answerBox.innerText) {
+      setTimeout(() => {
+        answerBox.parentNode.classList.add('success-answer');
+      } ,2000)
+    
+      setTimeout(() => {
+        this.questionBoxes.forEach((questionBox) => {
+          questionBox.classList.remove('score');
+        })
+        this.questionBoxes[14 - this.currentQuestionIndex].classList.add('score');
+        this.currentQuestionIndex++;
+        this.countDown();
+        this.drawQuestion();
+        answerBox.parentNode.classList.remove('success-answer');
+      } ,5000)
+      
     } else {
-      console.log("errorrrrr");
+      setTimeout ( () => {
+        answerBox.parentNode.classList.add('fail-answer');
+      },3000)
+
+      setTimeout ( ()=> {
+        this.trueAnswer();
+      },5500)
+      this.gameOver();
     }
-    // TODO: add css class to apply orange color
-    // setTimeout:
-    // TODO: check if answer is valid, check questions[currentQuestionIndex]
-    // if valid: inc currentQuestion. this.drawQuestion()
-    // else: game over
   }
+
+
+  trueAnswer(){
+      this.answerBoxes.forEach((box) => {
+        if (this.questions[this.currentQuestionIndex].trueAnswer === box.innerText) {
+          box.parentNode.classList.add('pending-answer')
+          }
+      });
+  }  
+
 
   drawQuestion() {
     const questionObj = this.questions[this.currentQuestionIndex];
@@ -86,9 +146,32 @@ class Game {
 
     this.answerBoxes.forEach((box, i) => {
       box.innerText = questionObj.answer[i];
+      box.classList.remove('no-visible');
     });
-    // TODO: set current question on question box. innerText = ...
-    // TODO: draw answers on answerBoxes
-    // TODO: add css class to questionbox
+  }
+
+  countDown(){
+    this.newAudioCountDown.play();
+    let time=20;
+    this.intervalId = setInterval(() => { 
+      document.getElementById('timeOut').innerText=time.toString().padStart(2,"0"); 
+      if(time <= 0){
+        clearInterval(this.intervalId);
+        this.intervalId=null;
+        this.newAudioCountDown.pause();
+        this.gameOver();
+      }else{
+        time -=1; 
+      }
+    }, 1000);
+  }
+
+
+  gameOver(){
+    console.log("HAS PERDIDO")
+    /*resetButton = document.createElement('button');
+    resetButton.textContent = 'Otra vez!';
+    document.body.append(resetButton);
+    resetButton.addEventListener('click', resetGame);*/
   }
 }

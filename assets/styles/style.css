@@ -1,99 +1,157 @@
 
+@font-face {
+    font-family: 'fuente';
+    src: url(../fonts/fuente3/Library\ 3\ am.otf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+
 body{
-    background-image: url(../image/fondo9.jpeg);
+    background-image: url(../image/Fondo.png);
     display: flex;
     align-items: center;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
     background-color: black;
+    font-family: 'fuente';
    
 }
-
 .icons-comodin{
     display: flex;
-    color: #e1a02e;
-    width: 570px;
-    height: 150px;
-    background: url(../image/comodines.png);
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 1500px;
+    height: 100px;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: flex-end;
     justify-content: space-around;
     background-size: cover;
-    margin-top: 15%;
+    margin-top: 10%;
+}
+
+.btn-comodin1{
+    color:#fdeefd;
+    height: 190px;
+    width: 200px;
+    background: url(../image/iconAudience.png);
+    background-size: cover ;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    font-size:25px;
+    font-family: 'fuente';
 }
 
 
-.panel{
+.btn-comodin2{
+    color:#fdeefd;
+    height: 190px;
+    width: 200px;
+    background: url(../image/iconTelephone.png);
+    background-size: cover ;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    font-size:25px;
+    font-family: 'fuente';
+}
+.btn-comodin3{
+    color:#fdeefd;
+    height: 190px;
+    width: 200px;
+    background: url(../image/icon50.png);
+    background-size: cover ;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    font-size:25px;
+    font-family: 'fuente';
+}
+
+.container{
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin:0% auto;
 }
 .logo{
-    width: 450px;
-    margin-top: 8%;
+    width: 600px;
+    padding-right: 40px;
 }
 
 .nav{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 }
 
-.nav .ul{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+
+.nav ul{
+    font-size: 30px;
 }
 
 .nav .white{
  list-style: none;
  color:white;
- font-size: 20px;
  display:flex;
  flex-direction: row;
 }
 
 .nav .orange{
     list-style: none;
-    color:#e1a02e;
-    font-size: 20px;
+    color:#5594a0;
+}
+
+.score{
+    background-color: #e1a02e;
+    border-radius: 35%;
+}
+
+#timeOut{
+    color:white;
+    font-size: 40px;
+    width: 100px;
+    position:absolute;
+    margin-top:3%;
 }
 
 .game{
     color:white;
     display:flex;
     justify-content: center;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 225px;
+    margin-inline: auto;
+    margin-top: 11%;
+    font-size: 20px;
 }
 
 .question{
-background:url(../image/quest.png);
-background-size: cover;
-background-repeat: no-repeat;
-width: 100%;
-margin-top: 10%;
-font-size: 60%;
-display: flex;
-justify-content: center;
-height: 53px;
+    background: url(../image/quest.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 74%;
+    font-size: 97%;
+    font-optical-sizing: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 161px;
+    align-content: stretch;
+    margin-bottom: -6px;
+    padding-bottom: 0px;
+    margin-top: -36px;
 }
-
-.question h2{
-display: flex;
-width: 70%;
-align-items: center;
-justify-content: center;
-}
-
-
 
 .button-a::before {
     content: 'A: ';
@@ -118,36 +176,50 @@ justify-content: center;
 .answers{
     display: flex;
     flex-direction: row;
-    margin-top: 5%;
     align-items: center;
-    width: 100%;
+    width: 99%;
     flex-wrap: wrap;
 }
-.button{
+
+.container-button{
     display: flex;
     width: 50%;
     background-image: url(../image/box.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 30px;
-    margin-bottom: 15px;
+    height: 60px;
     justify-content: center;
-    align-items: center;
+    padding-top: 18px;
+    padding-bottom: 0px;
 }
 
-.line1{
-    display:flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-}
 
 
 .button:hover{
     color: orange;
-    cursor: pointer;
 }
 
 .progress{
     color:white;
+}
+
+.success-answer{
+   background-image: url(../image/greenAnswer.png);
+}
+
+.fail-answer{
+    background-image: url(../image/redAnswer.png);
+}
+
+.pending-answer{
+    background-image: url(../image/orangeAnswer.png);
+}
+
+.visible{
+    visibility: visible;
+}
+
+.no-visible{
+    visibility: hidden;
 }
