@@ -9,13 +9,14 @@ class Game {
     this.currentQuestionIndex = 0;
     this.questions = [];
     this.intervalId = null;
-    this.newAudioCountDown = new Audio("./assets/sounds/Respuestas.mp3");
-    this.newAudioCountDown.volume = 0.5;
+    this.newAudioCountDown = new Audio("/assets/sounds/countDown.mp3");
+    this.newAudioCountDown.volume = 0.3;
     this.helps = {
       public: true,
       telephone: true,
       fifty: true,
     }
+    this.tick = 0;
   }
 
   start() {
@@ -43,6 +44,17 @@ class Game {
   setRandomQuestions() {
     this.prepareQuestion(); 
   }
+  
+  drawQuestion() {
+    const questionObj = this.questions[this.currentQuestionIndex];
+
+    this.questionElement.innerText = questionObj.question;
+
+    this.answerBoxes.forEach((box, i) => {
+      box.innerText = questionObj.answer[i];
+      box.classList.remove('hidden-box-answers');
+    });
+  }
 
   setListeners() {
     this.answerBoxes.forEach((answerbox) => {
@@ -52,7 +64,7 @@ class Game {
     });
 
     this.audienceBtn.addEventListener("click",() => {
-      this.onClickAudience();
+     this.onClickAudience();
     })
 
     this.tlfBtn.addEventListener("click",() =>{
@@ -63,22 +75,25 @@ class Game {
       if (this.helps.fifty) {
         this.onClickDivide();
         this.helps.fifty = false;
-        /*this.divideBtn.classList.add('')*/
+        this.divideBtn.classList.add('divide-hidden');
       }
-      
     })
   }
 
   onClickAudience() {
-    // TODO: pensarlo...
-    // TODO: remove listener => removeEventListener
-    // TODO: add css class to disable button
+    setInterval (()=>{
+      document.querySelector(".img-public").classList.remove('hidden');
+      this.tick++
+        if(this.tick >= 5){
+          document.querySelector(".img-public").classList.add('hidden');
+        }
+    },1000)
   }
 
   onClickTlf() {
-    // TODO: Carlos y Juli
-    // TODO: remove listener => removeEventListener
-    // TODO: add css class to disable button
+    const audioTlf = new Audio("/assets/sounds/Gayoso en apuros .mp3");
+    audioTlf.volume = 0.3;
+    audioTlf.play();
   }
 
 
@@ -88,10 +103,9 @@ class Game {
       .filter(answer => answer !== questionObj.trueAnswer)
       .sort( () => { return Math.random() - 0.5 })
       .splice(1);
-    console.log(wrongAnswers);
     this.answerBoxes.forEach((box) => {
       if (wrongAnswers.includes(box.innerText)) {
-        box.classList.add('no-visible');
+        box.classList.add('hidden-box-answers');
       }
     });
   }
@@ -112,9 +126,17 @@ class Game {
         })
         this.questionBoxes[14 - this.currentQuestionIndex].classList.add('score');
         this.currentQuestionIndex++;
-        this.countDown();
-        this.drawQuestion();
-        answerBox.parentNode.classList.remove('success-answer');
+        if(this.currentQuestionIndex === 15){
+          document.querySelector('.winner').classList.remove('hidden');
+          const replay = document.querySelector('.replay');
+          replay.style.display = "block";
+          this.onClickRestart();
+        }else{
+          this.countDown();
+          this.drawQuestion();
+          answerBox.parentNode.classList.remove('success-answer');
+        }
+     
       } ,5000)
       
     } else {
@@ -129,7 +151,6 @@ class Game {
     }
   }
 
-
   trueAnswer(){
       this.answerBoxes.forEach((box) => {
         if (this.questions[this.currentQuestionIndex].trueAnswer === box.innerText) {
@@ -138,21 +159,9 @@ class Game {
       });
   }  
 
-
-  drawQuestion() {
-    const questionObj = this.questions[this.currentQuestionIndex];
-
-    this.questionElement.innerText = questionObj.question;
-
-    this.answerBoxes.forEach((box, i) => {
-      box.innerText = questionObj.answer[i];
-      box.classList.remove('no-visible');
-    });
-  }
-
   countDown(){
     this.newAudioCountDown.play();
-    let time=20;
+    let time=30;
     this.intervalId = setInterval(() => { 
       document.getElementById('timeOut').innerText=time.toString().padStart(2,"0"); 
       if(time <= 0){
@@ -168,10 +177,20 @@ class Game {
 
 
   gameOver(){
-    console.log("HAS PERDIDO")
-    /*resetButton = document.createElement('button');
-    resetButton.textContent = 'Otra vez!';
-    document.body.append(resetButton);
-    resetButton.addEventListener('click', resetGame);*/
+    const video = document.getElementById('video-game-over');
+    video.classList.remove("hidden");
+    video.play();
+      document.querySelector('.container').classList.add("hidden");
+    setTimeout (() => {
+      const replay = document.querySelector('.replay');
+      replay.style.display = "block";
+    },4000)
+    this.onClickRestart();
+  }
+
+  onClickRestart(){
+    document.querySelector(".img-replay").addEventListener("click", () => {
+      window.location.reload();
+    })
   }
 }

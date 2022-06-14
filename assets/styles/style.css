@@ -6,7 +6,6 @@
     font-weight: normal;
 }
 
-
 body{
     background-image: url(../image/Fondo.png);
     display: flex;
@@ -14,25 +13,34 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
-    background-color: black;
     font-family: 'fuente';
-   
+    background-color: black;
 }
+
 .icons-comodin{
     display: flex;
-    width: 1500px;
-    height: 100px;
+    width: 1300px;
+    height: 80px;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: flex-end;
     justify-content: space-around;
     background-size: cover;
-    margin-top: 10%;
+    margin-top: 8%;
+    color:#fdeefd;
+}
+
+.img-public{
+    position: absolute;
+    top:2%;
+    left: 10%;
+    width: 90%;
+    height: 85%;
 }
 
 .btn-comodin1{
     color:#fdeefd;
-    height: 190px;
+    height: 170px;
     width: 200px;
     background: url(../image/iconAudience.png);
     background-size: cover ;
@@ -41,14 +49,17 @@ body{
     align-items: center;
     flex-direction: column;
     border: none;
-    font-size:25px;
+    font-size:20px;
     font-family: 'fuente';
 }
 
+.btn-comodin1:hover{
+    cursor:pointer;
+}
 
 .btn-comodin2{
     color:#fdeefd;
-    height: 190px;
+    height: 170px;
     width: 200px;
     background: url(../image/iconTelephone.png);
     background-size: cover ;
@@ -57,12 +68,16 @@ body{
     align-items: center;
     flex-direction: column;
     border: none;
-    font-size:25px;
+    font-size:20px;
     font-family: 'fuente';
 }
+.btn-comodin2:hover{
+    cursor:pointer;
+}
+
 .btn-comodin3{
     color:#fdeefd;
-    height: 190px;
+    height: 170px;
     width: 200px;
     background: url(../image/icon50.png);
     background-size: cover ;
@@ -71,8 +86,11 @@ body{
     align-items: center;
     flex-direction: column;
     border: none;
-    font-size:25px;
+    font-size:20px;
     font-family: 'fuente';
+}
+.btn-comodin3:hover{
+    cursor:pointer;
 }
 
 .container{
@@ -95,7 +113,7 @@ body{
 
 
 .nav ul{
-    font-size: 30px;
+    font-size:20px;
 }
 
 .nav .white{
@@ -120,7 +138,7 @@ body{
     font-size: 40px;
     width: 100px;
     position:absolute;
-    margin-top:3%;
+    margin-top:4%;
 }
 
 .game{
@@ -132,7 +150,7 @@ body{
     width: 100%;
     height: 225px;
     margin-inline: auto;
-    margin-top: 11%;
+    margin-top: 10%;
     font-size: 20px;
 }
 
@@ -140,13 +158,13 @@ body{
     background: url(../image/quest.png);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 74%;
-    font-size: 97%;
+    width: 85%;
+    font-size: 87%;
     font-optical-sizing: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 161px;
+    height: 120px;
     align-content: stretch;
     margin-bottom: -6px;
     padding-bottom: 0px;
@@ -188,13 +206,11 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 60px;
+    height: 58px;
     justify-content: center;
     padding-top: 18px;
     padding-bottom: 0px;
 }
-
-
 
 .button:hover{
     color: orange;
@@ -203,6 +219,7 @@ body{
 .progress{
     color:white;
 }
+/* Cambios dinámicos con eventos*/  
 
 .success-answer{
    background-image: url(../image/greenAnswer.png);
@@ -216,10 +233,48 @@ body{
     background-image: url(../image/orangeAnswer.png);
 }
 
-.visible{
-    visibility: visible;
+.public-hidden{
+    background-image: url(../image/iconAudienceHiden.png);
 }
 
-.no-visible{
+.telephone-hidden{
+    background-image: url(../image/iconTelephoneHiden.png);
+}
+
+.divide-hidden{
+    background-image: url(../image/icon50Hiden.png);
+}
+
+.hidden-box-answers{
     visibility: hidden;
+}
+
+.hidden{
+    display:none;
+}
+
+#video-game-over{
+  width: 100%;
+  height: 100%;
+  margin: 0%;
+}
+
+.replay{
+    display:none;
+    position:absolute;
+    left: 45%;
+    top: 57%;
+}
+
+.img-replay{
+    width: 25%;
+}
+
+.img-replay:hover{
+    cursor: pointer;
+}
+
+.winner{
+    width:100%;
+    position:absolute;
 }

@@ -7,66 +7,71 @@
     <title>Quién quiere ser IronHacker?</title>
     <link rel="icon" href="./assets/image/logo.png">
     <link rel='stylesheet' href="./assets/styles/style.css">
+    <video id="video-game-over" class="hidden" src="./assets/image/GameOver.mp4" ></video>
 </head>
     <meta charset="utf-8" />
-
 <body>
-    
-    <div class="container">
-
-        <div class="icons-comodin">
-           <button class="btn-comodin1" id="audience-btn"><a> Publico </a></button> 
-           <button class="btn-comodin2" id="tlf-btn"><a> Teléfono </a></button>
-           <button class="btn-comodin3" id="divide-btn"><a> 50/50 </a></button>
-        </div>
-
-        <div class="nav">
-          
-            <img class="logo" src="./assets/image/logo.png">
-            
-            <ul>
-                <li class= "white">
-                    <span class="number">15 </span>
-                    <span class="text">&nbsp  Excellent!</span>
-                </li>
-                <li class="orange">14</li>
-                <li class="orange">13</li>
-                <li class="orange">12</li>
-                <li class="orange">11</li>
-                <li class= "white">
-                    <span class="number">10</span>
-                    <span class="text">&nbsp  Good job!</span>
-                </li>
-                <li class="orange">9</li>
-                <li class="orange">8</li>
-                <li class="orange">7</li>
-                <li class="orange">6</li>
-                <li class= "white">
-                    <span class="number">5 </span>
-                    <span class="text">&nbsp  Well done!</span>
-                </li>
-                <li class="orange">4</li>
-                <li class="orange">3</li>
-                <li class="orange">2</li>
-                <li class="orange">1</li>
-            </ul>
-        
-        </div>
-        
-        <div class="game"> 
-
-            <div class="question" >
-            </div>
-            <br>
-            <div class="answers">
-                <div class="container-button"><a class="button button-a"></a></div>
-                <div class="container-button"><a class="button button-b"></a></div>
-                <div class="container-button"><a class="button button-c"></a></div>
-                <div class="container-button"><a class="button button-d"></a></div>
-            </div>
-            <p id="timeOut"></p>
-        </div>
+    <img class="winner hidden" src="assets/image/WinGif.gif">
+    <img class="img-public hidden" src="assets/image/publicImage.png">
+    <div class="replay">
+       <img class="img-replay" src="/assets/image/startbttn.png">
     </div>
+   
+    <div class="container">
+    
+        <div class="icons-comodin">
+        <button class="btn-comodin1" id="audience-btn"><a> Publico </a></button> 
+        <button class="btn-comodin2" id="tlf-btn"><a> Teléfono </a></button>
+        <button class="btn-comodin3" id="divide-btn"><a> 50/50 </a></button>
+        </div>
+    
+    <div class="nav">
+        <div class></div>
+        <img class="logo" src="./assets/image/logo.png">
+      
+        <ul>
+            <li class= "white">
+                <span class="number">15 </span>
+                <span class="text">&nbsp  Excellent!</span>
+            </li>
+            <li class="orange">14</li>
+            <li class="orange">13</li>
+            <li class="orange">12</li>
+            <li class="orange">11</li>
+            <li class= "white">
+                <span class="number">10</span>
+                <span class="text">&nbsp  Good job!</span>
+            </li>
+            <li class="orange">9</li>
+            <li class="orange">8</li>
+            <li class="orange">7</li>
+            <li class="orange">6</li>
+            <li class= "white">
+                <span class="number">5 </span>
+                <span class="text">&nbsp  Well done!</span>
+            </li>
+            <li class="orange">4</li>
+            <li class="orange">3</li>
+            <li class="orange">2</li>
+            <li class="orange">1</li>
+        </ul>
+    
+    </div>
+    
+    <div class="game"> 
+        
+        <div class="question" >
+        </div>
+        <br>
+        <div class="answers">
+            <div class="container-button"><a class="button button-a"></a></div>
+            <div class="container-button"><a class="button button-b"></a></div>
+            <div class="container-button"><a class="button button-c"></a></div>
+            <div class="container-button"><a class="button button-d"></a></div>
+        </div>
+        <p id="timeOut"></p>
+    </div>
+    
     <script type="text/javascript" src="./assets/js/constants.js"></script>
     <script type="text/javascript" src="./assets/js/models/game.js"></script>
     <script type="text/javascript" src="./assets/js/index.js"></script>
