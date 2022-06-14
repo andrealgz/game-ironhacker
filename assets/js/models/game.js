@@ -184,7 +184,7 @@ class Game {
     setTimeout (() => {
       const replay = document.querySelector('.replay');
       replay.style.display = "block";
-    },4000)
+    },9000)
     this.onClickRestart();
   }
 
